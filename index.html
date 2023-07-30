@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moje zadania</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calendar">
+        <div class="header">
+          <button id="prevBtn">&lt;</button>
+          <span id="monthYear"></span>
+          <button id="nextBtn">&gt;</button>
+        </div>
+        <div class="days">
+          <div class="day">Pon</div>
+          <div class="day">Wt</div>
+          <div class="day">Śr</div>
+          <div class="day">Czw</div>
+          <div class="day">Pt</div>
+          <div class="day">Sob</div>
+          <div class="day">Nd</div>
+        </div>
+        <div class="dates"></div>
+      </div>
+      <div class="centerent-content">
+        <div class="task-form">
+          <h1>Dodaj zadanie</h1>
+          <form>
+            <input type="date" id="taskDate" name="taskDate" />
+            <input
+              type="text"
+              id="taskName"
+              name="taskName"
+              placeholder="Nazwa zadania"
+            />
+          </form>
+          <div class="task-buttons">
+            <button class="button-task-form" id="addBtn">Dodaj</button>
+            <button class="openTasksBtn" id="openTasksBtn">
+              Otwórz zadania
+            </button>
+          </div>
+        </div>
+
+        <div class="tasks">
+          <h2>Zadania na wybrany dzień:</h2>
+          <ul id="taskList"></ul>
+        </div>
+        <div class="all-tasks">
+          <h3>Wszystkie zadania:</h3>
+          <ul id="allTasksList"></ul>
+          <button class="closeTasksBtn" id="closeTasksBtn">
+            Zamknij zadania
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

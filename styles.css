@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;1,300&family=Victor+Mono:wght@300&display=swap");
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.calendar {
+  width: 1200px;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s 1s forwards;
+}
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#monthYear {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#prevBtn,
+#nextBtn {
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  width: 7%;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 100%;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  background-color: #007bff;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.day {
+  text-align: center;
+  font-weight: bold;
+}
+
+.day-cell {
+  text-align: center;
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.empty {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.current-day {
+  background-color: #007bff;
+}
+
+.task-present {
+  position: relative;
+}
+
+.task-present:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.task-form {
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+input[type="date"],
+input[type="text"],
+button {
+  display: block;
+  margin-bottom: 10px;
+  width: 70%;
+  padding: 8px;
+  font-size: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.button-task-form {
+  background-color: #007bff;
+  width: 30%;
+  color: #fff;
+}
+
+.button-task-form:hover {
+  background-color: #0056b3;
+}
+
+.tasks {
+  margin-top: 20px;
+}
+
+.tasks button {
+  background-color: #007bff;
+  color: #fff;
+  width: 30%;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.tasks button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+#taskList li:first-child {
+  color: #888;
+}
+.empty {
+  background-color: transparent;
+  pointer-events: none;
+}
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+.day-cell.outside-month {
+  color: #cccccc;
+}
+.all-tasks {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  overflow: auto;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+h3 {
+  font-size: 2rem;
+}
+
+.all-tasks-open {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.all-tasks {
+  display: block !important;
+}
+
+.centerent-content .task-form .task-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 74%;
+  gap: 10px;
+}
+
+.button-task-form,
+.openTasksBtn {
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.closeTasksBtn {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+button {
+  border-radius: 15px;
+  border: none;
+}
+
+a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #000000;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 10px;
+  }
+
+  .calendar {
+    width: 100%;
+    height: auto;
+  }
+
+  #monthYear {
+    font-size: 24px;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    font-size: 1.5rem;
+  }
+
+  .days {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  }
+
+  .day-cell {
+    padding: 8px;
+    font-size: 1.2rem;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  button {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .button-task-form {
+    width: 100%;
+  }
+
+  .tasks button {
+    width: 100%;
+  }
+
+  .all-tasks {
+    width: 200px;
+  }
+
+  .centerent-content .task-form .task-buttons {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .button-task-form,
+  .openTasksBtn {
+    font-size: 1.2rem;
+  }
+
+  .closeTasksBtn {
+    font-size: 1.2rem;
+  }
+
+  a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #monthYear {
+    font-size: 18px;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    font-size: 1.2rem;
+  }
+
+  .day-cell {
+    padding: 6px;
+    font-size: 1rem;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  button {
+    font-size: 1.2rem;
+  }
+
+  .button-task-form,
+  .openTasksBtn {
+    font-size: 1rem;
+  }
+
+  .closeTasksBtn {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    padding: 5px;
+  }
+
+  #monthYear {
+    font-size: 16px;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    font-size: 1rem;
+  }
+
+  .days {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+  }
+
+  .day-cell {
+    padding: 4px;
+    font-size: 0.8rem;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  button {
+    font-size: 1rem;
+  }
+
+  .button-task-form,
+  .openTasksBtn {
+    font-size: 0.9rem;
+  }
+
+  .closeTasksBtn {
+    font-size: 0.9rem;
+  }
+
+  a {
+    font-size: 0.9rem;
+  }
+
+  .all-tasks {
+    width: 150px;
+  }
+
+  .centerent-content .task-form .task-buttons {
+    flex-direction: column;
+  }
+}
